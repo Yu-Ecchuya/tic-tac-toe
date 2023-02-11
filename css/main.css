@@ -1,0 +1,104 @@
+@charset 'UTF-8';
+
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.center {
+  text-align: center;
+}
+
+.fontBold {
+  font-weight: bold;
+}
+
+.pointerNone {
+  pointer-events: none;
+}
+
+.red {
+  color: red;
+}
+
+.blue {
+  color: blue;
+}
+
+.player1 {
+  background-color: rgb(255 240 247);
+}
+
+.player2 {
+  background-color: rgb(230 248 247);
+}
+
+.flex {
+  display: flex;
+  gap: 0 10px;
+}
+
+#main {
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+.wid600 {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.underLine {
+  border-bottom: 2px solid black;
+  padding-bottom: 5px;
+}
+
+.boardArea table {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.boardArea table td {
+  width: 197px;
+  height: 197px;
+  border: 1px solid gray;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 80px;
+  vertical-align: middle;
+}
+
+#announce {
+  font-size: 20px;
+}
+
+.btnArea {
+  margin: 30px 0;
+}
+.btnArea button {
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  width: 290px;
+  max-width: 100%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btnArea button:hover {
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+.btnArea__start {
+  background-color: orange;
+  color: white;
+}
+
+.btnArea__reset {
+  background-color: rgb(148, 176, 221);
+  color: white;
+}
+

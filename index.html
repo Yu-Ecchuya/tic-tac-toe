@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>〇✕ゲーム</title>
+
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+  </head>
+
+  <body>
+    <div id="main">
+
+      <div class="wid600">
+        <div class="playersArea">
+          <h2 class="title center">
+            <span class="underLine">&#9675;	&#215;ゲーム</span>
+          </h2>
+          <!-- <ul class="playersArea__list flex">
+            <li class="playersArea__item">〇</li>
+            <li class="playersArea__item">✕</li>
+          </ul> -->
+          <div id="announce" class="flex fontBold">
+            <p class="red">○の勝利数: <span id="maru"></span>回</p>
+            <p class="blue">×の勝利数: <span id="batu"></span>回</p>
+          </div>
+        </div>
+  
+        <div class="btnArea flex">
+          <div class="startGameBtn">
+            <button type="button" id="start" class="btnArea__start">ゲームを再開</button>
+          </div>
+          <div class="resetGameBtn">
+            <button type="button" id="reset" class="btnArea__reset">結果をリセットする</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="boardArea wid600">
+        <table>
+          <tr class="upperRow">
+            <td id="num1" class="upperRow__item column"></td>
+            <td id="num2" class="upperRow__item column"></td>
+            <td id="num3" class="upperRow__item column"></td>
+          </tr>
+          <tr class="centerRow">
+            <td id="num4" class="centerRow__item column"></td>
+            <td id="num5" class="centerRow__item column"></td>
+            <td id="num6" class="centerRow__item column"></td>
+          </tr>
+          <tr class="lowerRow">
+            <td id="num7" class="lowerRow__item column"></td>
+            <td id="num8" class="lowerRow__item column"></td>
+            <td id="num9" class="lowerRow__item column"></td>
+          </tr>
+        </table>
+      </div>
+
+
+
+    </div>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
