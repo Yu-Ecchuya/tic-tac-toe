@@ -14,6 +14,20 @@ const p1 = [];
 const p2 = [];
 
 /**
+ * 時間変換処理
+ */
+const dateTiimes = () => {
+  const date = new Date();
+  const yyyy = date.getFullYear();
+  const hh = date.getMonth() + 1;
+  const dd = date.getDate();
+  const times = `${date.getHours()}:${date.getMinutes()}`;
+  const dateTime = `${yyyy}-${hh}-${dd} ${times}`;
+
+  return dateTime;
+}
+
+/**
  * ゲーム結果を取得
  */
 const asyncFunc = async () => {
@@ -31,12 +45,12 @@ const asyncFunc = async () => {
     maru.innerText = p1Data;
     batu.innerText = p2Data;
   }
-
+  
 };
 asyncFunc();
 
 // 勝敗データ
-let gameDatas =　[];
+let gameDatas = [];
 
 // 配列に変換
 tdAll.map((value) => {
@@ -124,7 +138,7 @@ const setWinner = (playNum) => {
                 id: dataNum,
                 winOrLoss: `${winners}`,
                 winPrayers: winners === '〇の勝ち' ? 1 : 2,
-                created_time: '2023-02-11'
+                created_time: dateTiimes()
               }
             );
             
