@@ -7,6 +7,8 @@ const start = document.getElementById("start");
 const announce = document.getElementById("announce");
 const maru = document.getElementById("maru");
 const batu = document.getElementById("batu");
+const storageData = localStorage.getItem('data');
+const json = storageData ? JSON.parse(storageData) : null;
 
 const column = [];
 let player = 1;
@@ -32,25 +34,37 @@ const dateTiimes = () => {
  */
 const asyncFunc = async () => {
 
-  // 非同期処理
-  const data = await localStorage.getItem('data');
-  const parsed = await JSON.parse(data);
+    // 非同期処理
+    const promise = new Promise((resolve, reject) => {
+      const data = localStorage.getItem('data');
+      resolve(data);
+    });
 
-  if(data) {
-    // 勝利数をHTMLに反映
-    const player1 = await parsed.filter(datas => datas.winPrayers === 1);
-    const p1Data = await player1.length;
-    const player2 = await parsed.filter(datas => datas.winPrayers === 2);
-    const p2Data = await player2.length;
-    maru.innerText = p1Data;
-    batu.innerText = p2Data;
-  }
-  
+    promise.then((response) => {
+      return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            const json = JSON.parse(response);
+            resolve(json);
+          }, 100);
+      });
+    }).then((data) => {
+        setTimeout(() => {
+          if(data) {
+            // 勝利数をHTMLに反映
+            const player1 = data.filter(datas => datas.winPrayers === 1);
+            const p1Data = player1.length;
+            const player2 = data.filter(datas => datas.winPrayers === 2);
+            const p2Data = player2.length;
+            maru.innerText = p1Data;
+            batu.innerText = p2Data;
+          };
+        }, 100);
+    });
 };
 asyncFunc();
 
 // 勝敗データ
-let gameDatas = [];
+let gameDatas = storageData ? json : [];
 
 // 配列に変換
 tdAll.map((value) => {
@@ -141,7 +155,7 @@ const setWinner = (playNum) => {
                 created_time: dateTiimes()
               }
             );
-            
+
             // 結果をローカルストレージに保存
             localStorage.setItem('data', JSON.stringify(gameDatas));
           }
